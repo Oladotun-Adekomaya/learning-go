@@ -7,7 +7,10 @@ import (
 )
 
 func main(){
-	var revenue, expenses, taxRate float64
+	var revenue float64
+	var expenses float64
+	var taxRate float64
+
 	
 	fmt.Print("Revenue: ")
 	fmt.Scan(&revenue)
@@ -18,13 +21,14 @@ func main(){
 	fmt.Print("Tax Rate: ")
 	fmt.Scan(&taxRate)
 
-	fmt.Println(revenue, expenses, taxRate)
+	// fmt.Println(revenue, expenses, taxRate)
 
 	ebt := revenue - expenses
 	profit := ebt - (ebt*(taxRate/100))
-	ratio := ebt/profit
+	ratio := ebt / profit
 
-	println(ebt)
-	println("Expenses: ", expenses)
-	println("Ratio: ", ratio)
+	fmt.Println(ebt)
+	fmt.Println(profit)
+	fmt.Println(ratio)
+	
 }
