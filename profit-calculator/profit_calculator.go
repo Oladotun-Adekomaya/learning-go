@@ -38,14 +38,26 @@ func main(){
 	// fmt.Print(earningstxt, profittxt, ratiotxt)
 
 	//FUNCTIONS
+	revenue := getInput("Revenue: ")
+	expenses := getInput("Expenses: ")
+	taxRate := getInput("Tax Rate: ")
+
+	ebt, profit, ratio := calculations(revenue,expenses,taxRate)
 	
 
 	
 }
 
-func getInput(text string) (value string){
-	fmt.Println(text)
+func getInput(text string) (value float64){
+	fmt.Printf("%v", text)
 	// var value string
-	fmt.Scan(&value)
-	return value
+	fmt.Scanln(&value)
+	return 
+}
+
+func calculations(revenue, expenses, taxRate float64)(ebt, profit, ratio float64){
+	ebt = revenue - expenses
+	profit = ebt - (ebt*(taxRate/100))
+	ratio = ebt / profit
+	return
 }
