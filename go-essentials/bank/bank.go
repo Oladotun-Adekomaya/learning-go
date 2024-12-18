@@ -6,6 +6,7 @@ import(
 
 func main(){
 	var accountBalance float64 = 1000
+	
 
 	fmt.Println("Welcome to the Go Bank!")
 	fmt.Println("What do you want to do?")
@@ -20,6 +21,20 @@ func main(){
 
 	if choice == 1 {
 		fmt.Printf("Your account balance is $%v\n", accountBalance)
+	}else if choice == 2 {
+
+		fmt.Println("Your deposit: ")
+		var deposit float64
+		fmt.Scan(&deposit)
+		accountBalance += deposit
+
+	}else if choice == 3 {
+
+		fmt.Println("Your Withdrawal: ")
+		var withdrawAmount float64
+		fmt.Scan(&withdrawAmount)
+		accountBalance -= withdrawAmount
+
 	}
 
 	// fmt.Println("Your choice:",choice)
