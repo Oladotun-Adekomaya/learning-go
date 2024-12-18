@@ -44,7 +44,7 @@ func main(){
 
 	ebt, profit, ratio := calculations(revenue,expenses,taxRate)
 
-	fmt.Printf("%v, %v, %.2f\n",ebt, profit, ratio)
+	fmt.Printf("%.1f, %.1f, %.2f\n",ebt, profit, ratio)
 	
 
 	
