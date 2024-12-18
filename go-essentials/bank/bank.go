@@ -37,6 +37,8 @@ func main(){
 		accountBalance -= withdrawAmount
 		fmt.Printf("Balance updated! New amount: $%v\n", accountBalance)
 
+	}else{
+		println("Goodbye")
 	}
 
 	// fmt.Println("Your choice:",choice)
