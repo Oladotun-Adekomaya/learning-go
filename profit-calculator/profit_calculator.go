@@ -43,6 +43,8 @@ func main(){
 	taxRate := getInput("Tax Rate: ")
 
 	ebt, profit, ratio := calculations(revenue,expenses,taxRate)
+
+	fmt.Print(ebt, profit, ratio)
 	
 
 	
