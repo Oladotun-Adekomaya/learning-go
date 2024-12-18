@@ -39,6 +39,7 @@ func main() {
 			}
 
 			accountBalance += deposit
+			writeBalanceToFile(accountBalance)
 			fmt.Printf("Balance updated! New amount: $%v\n", accountBalance)
 
 		} else if choice == 3 {
@@ -55,6 +56,7 @@ func main() {
 				continue
 			}
 			accountBalance -= withdrawAmount
+			writeBalanceToFile(accountBalance)
 			fmt.Printf("Balance updated! New amount: $%v\n", accountBalance)
 
 		} else {
