@@ -19,8 +19,8 @@ func main(){
 	fmt.Scan(&choice)
 
 	if choice == 1 {
-		fmt.Printf("Your account balance is %.3f", accountBalance)
+		fmt.Printf("Your account balance is $%v\n", accountBalance)
 	}
 
-	fmt.Println("Your choice:",choice)
+	// fmt.Println("Your choice:",choice)
 }
