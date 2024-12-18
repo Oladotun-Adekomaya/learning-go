@@ -2,7 +2,12 @@ package main
 
 import (
 	"fmt"
+	"os"
 )
+
+func writeBalanceToFile(balance float64) {
+
+}
 
 func main() {
 	var accountBalance float64 = 1000
