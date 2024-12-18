@@ -7,19 +7,19 @@ import (
 )
 
 func main(){
-	var revenue float64
-	var expenses float64
-	var taxRate float64
+	// var revenue float64
+	// var expenses float64
+	// var taxRate float64
 
 	
-	fmt.Print("Revenue: ")
-	fmt.Scan(&revenue)
+	// fmt.Print("Revenue: ")
+	// fmt.Scan(&revenue)
 
-	fmt.Print("Expenses: ")
-	fmt.Scan(&expenses)
+	// fmt.Print("Expenses: ")
+	// fmt.Scan(&expenses)
 
-	fmt.Print("Tax Rate: ")
-	fmt.Scan(&taxRate)
+	// fmt.Print("Tax Rate: ")
+	// fmt.Scan(&taxRate)
 
 	// fmt.Println(revenue, expenses, taxRate)
 
@@ -37,5 +37,15 @@ func main(){
 
 	// fmt.Print(earningstxt, profittxt, ratiotxt)
 
+	//FUNCTIONS
 	
+
+	
+}
+
+func getInput(text string) (value string){
+	fmt.Println(text)
+	// var value string
+	fmt.Scan(&value)
+	return value
 }
