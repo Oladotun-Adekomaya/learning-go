@@ -1,1 +1,6 @@
 11000
+
+Just finished learning about packages in Go.
+i learnt the core ideas behind packeages and how to create packages.
+I also learnt how to manage files across packages.
+I also learnt how to use third party packages by using the 'go get {package}' command
