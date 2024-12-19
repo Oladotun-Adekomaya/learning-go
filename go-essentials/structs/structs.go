@@ -38,7 +38,7 @@ func main() {
 
 	// ... do something awesome with that gathered data!
 
-	outputUserDetails(appUser)
+	appUser.outputUserDetails()
 }
 
 func getUserData(promptText string) string {
