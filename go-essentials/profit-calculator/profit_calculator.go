@@ -1,17 +1,16 @@
 package main
 
 import (
+	"errors"
 	"fmt"
 	// "math"
-	
 )
 
-func main(){
+func main() {
 	// var revenue float64
 	// var expenses float64
 	// var taxRate float64
 
-	
 	// fmt.Print("Revenue: ")
 	// fmt.Scan(&revenue)
 
@@ -38,28 +37,47 @@ func main(){
 	// fmt.Print(earningstxt, profittxt, ratiotxt)
 
 	//FUNCTIONS
-	revenue := getInput("Revenue: ")
-	expenses := getInput("Expenses: ")
-	taxRate := getInput("Tax Rate: ")
+	revenue, err := getInput("Revenue: ")
 
-	ebt, profit, ratio := calculations(revenue,expenses,taxRate)
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
 
-	fmt.Printf("%.1f, %.1f, %.2f\n",ebt, profit, ratio)
-	
+	expenses, err := getInput("Expenses: ")
 
-	
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+
+	taxRate, err := getInput("Tax Rate: ")
+
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+
+	ebt, profit, ratio := calculations(revenue, expenses, taxRate)
+
+	fmt.Printf("%.1f, %.1f, %.2f\n", ebt, profit, ratio)
+
 }
 
-func getInput(text string) (value float64){
+func getInput(text string) (float64, error) {
 	fmt.Printf("%v", text)
-	// var value string
+	var value float64
 	fmt.Scanln(&value)
-	return 
+
+	if value <= 0 {
+		return 0, errors.New("Value must be positive")
+	}
+	return value, nil
 }
 
-func calculations(revenue, expenses, taxRate float64)(ebt, profit, ratio float64){
+func calculations(revenue, expenses, taxRate float64) (ebt, profit, ratio float64) {
 	ebt = revenue - expenses
-	profit = ebt - (ebt*(taxRate/100))
+	profit = ebt - (ebt * (taxRate / 100))
 	ratio = ebt / profit
 	return
 }
