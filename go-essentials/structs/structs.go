@@ -21,6 +21,15 @@ func (u *user) clearUserName() {
 	u.lastName = ""
 }
 
+func newUser(firstName string, lastName string, birthDate string) user {
+	return user{
+		firstName: firstName,
+		lastName:  lastName,
+		birthDate: birthDate,
+		createdAt: time.Now(),
+	}
+}
+
 func main() {
 	userFirstName := getUserData("Please enter your first name: ")
 	userLastName := getUserData("Please enter your last name: ")
@@ -34,12 +43,7 @@ func main() {
 	// }
 
 	var appUser user
-	appUser = user{
-		firstName: userFirstName,
-		lastName:  userLastName,
-		birthDate: userBirthdate,
-		createdAt: time.Now(),
-	}
+	appUser = newUser(userFirstName, userLastName, userBirthdate)
 
 	// ... do something awesome with that gathered data!
 
