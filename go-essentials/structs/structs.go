@@ -17,14 +17,19 @@ func main() {
 	userLastName := getUserData("Please enter your last name: ")
 	userBirthdate := getUserData("Please enter your birthdate (MM/DD/YYYY): ")
 
-	var appUser user
-
-	appUser = user{
+	var appUser user = user{
 		firstName: userFirstName,
 		lastName:  userLastName,
 		birthDate: userBirthdate,
 		createdAt: time.Now(),
 	}
+
+	// appUser = user{
+	// 	firstName: userFirstName,
+	// 	lastName:  userLastName,
+	// 	birthDate: userBirthdate,
+	// 	createdAt: time.Now(),
+	// }
 
 	// ... do something awesome with that gathered data!
 
