@@ -3,6 +3,7 @@ package main
 import (
 	"errors"
 	"fmt"
+	"os"
 	// "math"
 )
 
@@ -62,6 +63,8 @@ func main() {
 
 	fmt.Printf("%.1f, %.1f, %.2f\n", ebt, profit, ratio)
 
+	storeResults(ebt, profit, ratio)
+
 }
 
 func getInput(text string) (float64, error) {
@@ -70,7 +73,7 @@ func getInput(text string) (float64, error) {
 	fmt.Scanln(&value)
 
 	if value <= 0 {
-		return 0, errors.New("Value must be positive")
+		return 0, errors.New("value must be positive")
 	}
 	return value, nil
 }
@@ -80,4 +83,10 @@ func calculations(revenue, expenses, taxRate float64) (ebt, profit, ratio float6
 	profit = ebt - (ebt * (taxRate / 100))
 	ratio = ebt / profit
 	return
+}
+
+func storeResults(ebt, profit, ratio float64) {
+	results := fmt.Sprintf("EBT: %.1f\nProfit: %.1f\nRatio %.3f\n", ebt, profit, ratio)
+
+	os.WriteFile("results.txt", []byte(results), 0644)
 }
