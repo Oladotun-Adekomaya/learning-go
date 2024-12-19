@@ -7,26 +7,28 @@ import (
 	"strconv"
 )
 
-func getBalanceFromFile() (float64, error) {
-	data, err := os.ReadFile("balance.txt")
+const accountBalanceFile = "balance.txt"
+
+func getFloatFromFile(fileName string, defaultValue float64) (float64, error) {
+	data, err := os.ReadFile(fileName)
 
 	if err != nil {
-		return 1000, errors.New("Failed to find balance file")
+		return defaultValue, errors.New("failed to find file")
 	}
 
-	balanceText := string(data)
-	balance, _ := strconv.ParseFloat(balanceText, 64)
+	valueText := string(data)
+	value, _ := strconv.ParseFloat(valueText, 64)
 
-	return balance, nil
+	return value, nil
 }
 
-func writeBalanceToFile(balance float64) {
-	balancetxt := fmt.Sprint(balance)
-	os.WriteFile("balance.txt", []byte(balancetxt), 0644)
+func writeFloatToFile(fileName string, value float64) {
+	valueText := fmt.Sprint(value)
+	os.WriteFile(fileName, []byte(valueText), 0644)
 }
 
 func main() {
-	var accountBalance, err = getBalanceFromFile()
+	var accountBalance, err = getFloatFromFile(accountBalanceFile, 1000)
 
 	if err != nil {
 		fmt.Println("ERROR")
@@ -57,7 +59,7 @@ func main() {
 			}
 
 			accountBalance += deposit
-			writeBalanceToFile(accountBalance)
+			writeFloatToFile(accountBalanceFile, accountBalance)
 			fmt.Printf("Balance updated! New amount: $%v\n", accountBalance)
 
 		} else if choice == 3 {
@@ -74,7 +76,7 @@ func main() {
 				continue
 			}
 			accountBalance -= withdrawAmount
-			writeBalanceToFile(accountBalance)
+			writeFloatToFile(accountBalanceFile, accountBalance)
 			fmt.Printf("Balance updated! New amount: $%v\n", accountBalance)
 
 		} else {
