@@ -7,7 +7,7 @@ import (
 	"strconv"
 )
 
-func getFloatFromFile(fileName string, defaultValue float64) (float64, error) {
+func GetFloatFromFile(fileName string, defaultValue float64) (float64, error) {
 	data, err := os.ReadFile(fileName)
 
 	if err != nil {
@@ -20,7 +20,7 @@ func getFloatFromFile(fileName string, defaultValue float64) (float64, error) {
 	return value, nil
 }
 
-func writeFloatToFile(fileName string, value float64) {
+func WriteFloatToFile(fileName string, value float64) {
 	valueText := fmt.Sprint(value)
 	os.WriteFile(fileName, []byte(valueText), 0644)
 }
