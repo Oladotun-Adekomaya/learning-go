@@ -21,7 +21,7 @@ func (u *user) clearUserName() {
 	u.lastName = ""
 }
 
-func newUser(firstName string, lastName string, birthDate string) user {
+func newUser(firstName, lastName, birthDate string) user {
 	return user{
 		firstName: firstName,
 		lastName:  lastName,
