@@ -14,4 +14,6 @@ func main() {
 	fmt.Println(prices[0])
 
 	featuredPrices := prices[1:3]
+
+	fmt.Println(featuredPrices)
 }
