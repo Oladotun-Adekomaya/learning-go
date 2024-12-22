@@ -5,10 +5,16 @@ import (
 )
 
 func main() {
+	// Create the slice
 	prices := []float64{10.99, 8.99}
 
+	// Append new elements to the slice
 	prices = append(prices, 5.99)
 
+	// Remove the first element in the slice
+	prices = prices[1:]
+
+	// Print
 	fmt.Println(prices)
 }
 
