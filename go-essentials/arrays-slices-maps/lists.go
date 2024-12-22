@@ -18,5 +18,5 @@ func main() {
 	featuredPrices[0] = 199.99
 
 	// fmt.Println(featuredPrices)
-	fmt.Println(prices)
+	fmt.Println(len(prices), cap(prices))
 }
